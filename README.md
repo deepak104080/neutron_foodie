@@ -5,11 +5,12 @@ Foodie - Multipage Food Listing and Delivery App
 
 
 MVP - Minimum Viable Product
+------------------------------------------------------------
 homepage
 location list page
 location and category based page / location list page - add filter
 restaurant page
-
+------------------------------------------------------------
 
 
 //add restaurant
