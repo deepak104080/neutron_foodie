@@ -58,3 +58,10 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+
+.image-max-height {
+  max-height: 250px;
+  min-height: 250px;
+  min-width: 100%;
+}
