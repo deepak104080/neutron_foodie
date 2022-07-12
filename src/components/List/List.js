@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useLocation, useParams } from "react-router-dom";
+import { useLocation, useParams, Link } from "react-router-dom";
 import axios from "axios";
 
 const List = () => {
@@ -42,14 +42,16 @@ const List = () => {
 
 
             {list && list.map((item) => (
-            <div class="col-lg-4 menu-item">
-            <a href="assets/img/menu/menu-item-1.png" class="glightbox">
-                <img src={item.image} class="menu-img img-fluid image-max-height" alt=""/></a>
-            <h4>{item.rest_name}</h4>
-            
-            <p class="price">
-                $5.95
-            </p>
+            <div class="col-lg-4 menu-item border bg-secondary bg-opacity-10">
+                <Link to={`/restaurant/${item.rest_id}`} class="glightbox">
+                    <img src={item.image} class="menu-img img-fluid image-max-height" alt=""/>
+                
+                    <h4>{item.rest_name}</h4>
+                
+                    <p class="price">
+                        $5.95
+                    </p>
+                </Link>
             </div>
 
             ))}

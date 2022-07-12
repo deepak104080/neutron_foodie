@@ -21,7 +21,7 @@ function App() {
         <Routes>
           <Route path='/homepage' element = {<HomePage/>}/>
           <Route path='/list/:city' element = {<List/>}/>
-          <Route path='/restaurant' element = {<Restaurant/>}/>
+          <Route path='/restaurant/:id' element = {<Restaurant/>}/>
           <Route path='/' element = {<HomePage/>}/>
         </Routes>
         <Footer/>

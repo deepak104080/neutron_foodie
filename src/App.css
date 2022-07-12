@@ -65,3 +65,7 @@ code {
   min-height: 250px;
   min-width: 100%;
 }
+.menu-image {
+  width: 100px;
+  height: 100px;
+}
