@@ -6,68 +6,69 @@ Foodie - Multipage Food Listing and Delivery App
 
 MVP - Minimum Viable Product
 ------------------------------------------------------------
-page 1 - homepage
-//location list page
-Page 2 - location based restaurent list
-location and category based page / location list page - add filter
-page 3 - restaurant page
+Module 1 - End User
+page 1 - homepage - API 4
+Page 2 - location based restaurent list - API 1
+page 3 - restaurant page - API 2 and API 3
 ------------------------------------------------------------
 
 
-//add restaurant
+Module 2 - Admin
+Add Restaurant - API 5
+Add Food - API 6
+------------------------------------------------------------
+Module 3 - End User
+Page 1 - Login Page - API 7
+Page 2 - Registration Page - API 8
+Page 3 - cart - 
+Page 4 - checkout - login details, delivery details, payment details - API 9
+Page 5 - Order Placed Page
+------------------------------------------------------------
+Module 4 - End User
+Page 1 - history of orders
+Page 2 - profile
+Page 3 - addresses
+Page 4 - Change Password
+Page 5 - Forgot Password
+------------------------------------------------------------
 
-
-
-
-login/signup
-restaurant page - add item
-cart
-checkout - login details, delivery details, payment details
-order placed
-
-
-
-
-history of orders
-profile
-addresses
-
-
-
-
-
-reviews, bookmark/favourite
-wallet/credit/discount/cashback
-
-
-
-
+Module 5 - End User
+Page1 - reviews, bookmark/favourite
+Page 2 - wallet/credit/discount/cashback
 
 
 -----------------------------------------------------------
+-----------------------------------------------------------
+API List
+1 - http://localhost:4000/restaurants/'+tempData2.city - Restaurant - GET
+2 - http://localhost:4000/restaurants/search/'+tempId.id; - Restaurant - GET
+3 - http://localhost:4000/menu/'+tempId.id; - Menu - GET
+4 - city list api - City - GET
+5 - Add Restaurnt - POST - Restaurant
+6 - Add Menu - POST - Menu
+7 - Login - POST - Users
+8 - Registration - POST - Users
+9 - Order Placement - POST - Orders
 
-
-tables name - 
-city
-restaurants - city, geolocation (latitude, longitude), category, veg/nonveg
-food_menu - name, price
-
-
-
-users
-cart
+-----------------------------------------------------------
+-----------------------------------------------------------
+Table names
+City
+Restaurant - city, geolocation (latitude, longitude), category, veg/nonveg
+Menu - name, price
+Users
 orders - delivery, payment, menu
+order details
 
 
 ------------------------------------------------------------
 
-admin portals
 
 
 
 
 
-JEST, Enzyme, react-test-rendere, react-testing-library, cypress
+Testing Libraries for React - JEST, Enzyme, react-test-rendere, react-testing-library, cypress
 
 
 
@@ -75,74 +76,15 @@ JEST, Enzyme, react-test-rendere, react-testing-library, cypress
 
 
 
-# ####################################
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
 
-In the project directory, you can run:
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Teams
+1) Mumtaj, Aman, Saheda, Ruchi
+2) Aswani, Rahul, Sanjeev
+3) Abhinay, Sumesh, Charan
+4) Subhradip, Anurag, Ameen
+5) Ajay, Ramanjeet, Suraj
+6) Rishi, Purushottam, Arpit
