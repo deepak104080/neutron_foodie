@@ -56,7 +56,8 @@ Table names
 City
 Restaurant - city, geolocation (latitude, longitude), category, veg/nonveg
 Menu - name, price
-Users
+Users - username, name, email, mobile, password
+userdetails - address, foodpreference, city, pincode, profilepic, dob, gender
 orders - delivery, payment, menu
 order details
 
@@ -64,7 +65,8 @@ order details
 ------------------------------------------------------------
 
 
-
+Authentication - 
+Authorization - Auth0, Passport, JWT Token
 
 
 
@@ -82,9 +84,9 @@ Testing Libraries for React - JEST, Enzyme, react-test-rendere, react-testing-li
 
 
 Teams
-1) Mumtaj, Aman, Saheda, Ruchi
-2) Aswani, Rahul, Sanjeev
-3) Abhinay, Sumesh, Charan
+1) Mumtaj, Aman, Saheda, Ruchi, Purushottam
+2) Aswani, Rahul, Sanjeev rajput
+3) Abhinay, Sumesh, Charan, sanjeev kumar
 4) Subhradip, Anurag, Ameen
 5) Ajay, Ramanjeet, Suraj
 6) Rishi, Purushottam, Arpit

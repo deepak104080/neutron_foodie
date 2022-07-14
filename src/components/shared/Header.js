@@ -41,7 +41,8 @@ const Header = () => {
         </ul>
       </nav>
 
-      <a class="btn-book-a-table" href="#book-a-table">Book a Table</a>
+      <Link to="/login" class="btn-book-a-table" >Login</Link>
+      <Link to="/registration" class="btn-book-a-table">Register</Link>
       <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
       <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
 

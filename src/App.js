@@ -9,6 +9,8 @@ import {BrowserRouter, Route, Routes} from 'react-router-dom';
 import HomePage from './components/HomePage/HomePage';
 import List from './components/List/List';
 import Restaurant from './components/Restaurant/Restaurant';
+import Registration from './components/User/Registration';
+import Login from './components/User/Login';
 
 import Header from './components/shared/Header';
 import Footer from './components/shared/Footer';
@@ -22,20 +24,11 @@ function App() {
           <Route path='/homepage' element = {<HomePage/>}/>
           <Route path='/list/:city' element = {<List/>}/>
           <Route path='/restaurant/:id' element = {<Restaurant/>}/>
+          <Route path='/registration/' element = {<Registration/>}/>
+          <Route path='/login/' element = {<Login/>}/>
           <Route path='/' element = {<HomePage/>}/>
         </Routes>
         <Footer/>
-
-
-    {/* <div className='app'>
-      <div className='container bg-info'>
-        <div className='row'>
-          <div className='col-12'>
-            <h2>Foodie App</h2>
-          </div>
-        </div>
-      </div>
-    </div> */}
 
     </BrowserRouter>
   );
