@@ -1,6 +1,8 @@
 import React, {useRef, useState} from 'react'
 import axios from 'axios';
 import {Link, useNavigate} from 'react-router-dom';
+import {setLoginData} from './actionLogin';
+import { useDispatch } from 'react-redux';
 
 const Login = () => {
   const inputRef1 = useRef();
@@ -8,6 +10,7 @@ const Login = () => {
   const errorRef = useRef();
   const [submitStatus, setSubmitStatus] = useState(false);
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const loginFn = async () => {
     let tempObj = {};
@@ -25,6 +28,8 @@ const Login = () => {
       if(response.status === 200) {
         //setSubmitStatus(true);
         errorRef.current.textContent = '';
+        //set redux for login data
+        dispatch(setLoginData(response));
         navigate('/', {state: response});
       }
       
