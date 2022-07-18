@@ -1,7 +1,19 @@
 import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import {Link} from 'react-router-dom';
+import {setLogout} from '../User/actionLogin';
 
 const Header = () => {
+  const dispatch = useDispatch();
+  const loginData = useSelector(state => state.login);
+  console.log('Header---------------------', loginData.loginDataRedux)
+
+  const logoutFn = () => {
+    console.log('---------logout------------');
+    //redux update - loginData
+    dispatch(setLogout());
+  }
+
   return (
     <header id="header" class="header d-flex align-items-center">
     <div class="container d-flex align-items-center justify-content-between">
@@ -40,9 +52,23 @@ const Header = () => {
           <li><a href="#contact">Contact</a></li>
         </ul>
       </nav>
+      <Link to="/cart" class="btn-book-a-table" >Cart</Link>
 
-      <Link to="/login" class="btn-book-a-table" >Login</Link>
-      <Link to="/registration" class="btn-book-a-table">Register</Link>
+      <span>
+        {
+          loginData.loginDataRedux ? (
+            <>
+              <button onClick={logoutFn} class="btn-book-a-table" >Logout</button>
+            </>
+          ) : (
+            <>
+              <Link to="/login" class="btn-book-a-table" >Login</Link>
+              <Link to="/registration" class="btn-book-a-table">Register</Link>
+            </>
+          )
+        }
+        
+      </span>
       <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
       <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
 

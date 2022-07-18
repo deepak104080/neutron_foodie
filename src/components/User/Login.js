@@ -2,7 +2,7 @@ import React, {useRef, useState} from 'react'
 import axios from 'axios';
 import {Link, useNavigate} from 'react-router-dom';
 import {setLoginData} from './actionLogin';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 const Login = () => {
   const inputRef1 = useRef();
@@ -12,27 +12,32 @@ const Login = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
+  const loginData = useSelector(state => state.login);
+  console.log('redux store - ', loginData.loginDataRedux);
+
   const loginFn = async () => {
     let tempObj = {};
     tempObj.username = inputRef1.current.value;
     tempObj.password = inputRef2.current.value;
 
     if(tempObj.username !== '' && tempObj.password !== '') {
-      const url = 'http://localhost:4000/user/login';
-      const response = await axios.post(url, tempObj);
-      console.log(response);
-      if(response.status === 422) {
-        console.log('erorr in login..')
-        errorRef.current.textContent = 'Error. Plz try again.'
+      try{
+        const url = 'http://localhost:4000/user/login';
+        const response = await axios.post(url, tempObj);
+        console.log(response);
+        
+        if(response.status === 200) {
+          //setSubmitStatus(true);
+          errorRef.current.textContent = '';
+          //set redux for login data
+          dispatch(setLoginData(response.data));
+          navigate('/', {state: response.data});
+        }
       }
-      if(response.status === 200) {
-        //setSubmitStatus(true);
-        errorRef.current.textContent = '';
-        //set redux for login data
-        dispatch(setLoginData(response));
-        navigate('/', {state: response});
-      }
-      
+      catch(err){
+          console.log('erorr in login..')
+          errorRef.current.textContent = 'Error. Plz try again.'
+      }      
     }
     else {
       errorRef.current.textContent = 'Plz fill all the values.'
@@ -57,14 +62,14 @@ const Login = () => {
                   <div className="form-group row">
                     <label for="inputEmail3" className="col-sm-2 col-form-label">Username</label>
                     <div className="col-sm-10">
-                      <input type="text" className="form-control" ref={inputRef1} placeholder="Username"/>
+                      <input type="text" className="form-control" ref={inputRef1} placeholder="Username" value="deepak123"/>
                     </div>
                   </div>
                   
                   <div className="form-group row">
                     <label for="inputPassword3" className="col-sm-2 col-form-label">Password</label>
                     <div className="col-sm-10">
-                      <input type="password" className="form-control" ref={inputRef2} placeholder="Password"/>
+                      <input type="password" className="form-control" ref={inputRef2} placeholder="Password" value="123456"/>
                     </div>
                   </div>
                   

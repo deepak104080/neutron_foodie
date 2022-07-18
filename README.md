@@ -86,7 +86,7 @@ Testing Libraries for React - JEST, Enzyme, react-test-rendere, react-testing-li
 Teams
 1) Mumtaj, Aman, Saheda, Ruchi, Purushottam
 2) Aswani, Rahul, Sanjeev rajput
-3) Abhinay, Sumesh, Charan, sanjeev kumar
+3) *****Abhinay, Sumesh, Charan, sanjeev kumar
 4) Subhradip, Anurag, Ameen
 5) Ajay, Ramanjeet, Suraj
-6) Rishi, Purushottam, Arpit
+6) *****Rishi, Purushottam, Arpit

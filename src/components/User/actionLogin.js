@@ -7,3 +7,9 @@ export const setLoginData = (loginData) => {
         payload: loginData,
     }
 }
+
+export const setLogout = () => {
+    return{
+        type: Constants.SET_LOGOUT
+    }
+}

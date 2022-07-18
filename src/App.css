@@ -52,6 +52,10 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-family: 'Montserrat';
+  /* background-image: url('https://wallpaperaccess.com/full/3949076.jpg'); */
+}
+.footer {
+  background-image: url('https://wallpaperaccess.com/full/3949076.jpg');
 }
 
 code {
