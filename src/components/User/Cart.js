@@ -10,6 +10,7 @@ const Cart = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
+        //checking login
         if(!loginData.loginDataRedux) {
             //save current url
             dispatch(setUrl(window.location.pathname));
