@@ -13,3 +13,10 @@ export const setLogout = () => {
         type: Constants.SET_LOGOUT
     }
 }
+
+export const setUrl = (url) => {
+    return{
+        type: Constants.SET_URL,
+        payload: url
+    }
+}

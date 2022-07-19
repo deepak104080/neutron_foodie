@@ -16,6 +16,7 @@ page 3 - restaurant page - API 2 and API 3
 Module 2 - Admin
 Add Restaurant - API 5
 Add Food - API 6
+Add City - API 10
 ------------------------------------------------------------
 Module 3 - End User
 Page 1 - Login Page - API 7
@@ -49,7 +50,7 @@ API List
 7 - Login - POST - Users
 8 - Registration - POST - Users
 9 - Order Placement - POST - Orders
-
+10 - City Add - POST - City
 -----------------------------------------------------------
 -----------------------------------------------------------
 Table names

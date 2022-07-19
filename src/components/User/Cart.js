@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
 import {useDispatch, useSelector} from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import {setUrl} from '../User/actionLogin';
 
 const Cart = () => {
     const dispatch = useDispatch();
@@ -11,9 +12,10 @@ const Cart = () => {
     useEffect(() => {
         if(!loginData.loginDataRedux) {
             //save current url
+            dispatch(setUrl(window.location.pathname));
             navigate('/login');
         }
-    }, [loginData])
+    }, [loginData.loginDataRedux])
 
     return (
         <>

@@ -13,7 +13,7 @@ const Login = () => {
   const dispatch = useDispatch();
 
   const loginData = useSelector(state => state.login);
-  console.log('redux store - ', loginData.loginDataRedux);
+  console.log('redux store - ', loginData);
 
   const loginFn = async () => {
     let tempObj = {};
@@ -31,7 +31,13 @@ const Login = () => {
           errorRef.current.textContent = '';
           //set redux for login data
           dispatch(setLoginData(response.data));
-          navigate('/', {state: response.data});
+          if(loginData.currentUrl) {
+            navigate(loginData.currentUrl);
+          }
+          else {
+            navigate('/', {state: response.data});
+          }
+          
         }
       }
       catch(err){
