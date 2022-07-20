@@ -15,7 +15,7 @@ const HomePage = () => {
     })
     return(
         <> 
-            <section id="hero" class="hero d-flex align-items-center section-bg">
+            <section id="hero" class="hero d-flex align-items-center section-bg banner">
                 <div class="container">
                 <div class="row justify-content-between gy-5">
                     <div class="col-lg-5 order-2 order-lg-1 d-flex flex-column justify-content-center align-items-center align-items-lg-start text-center text-lg-start">

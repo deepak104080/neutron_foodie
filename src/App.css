@@ -55,13 +55,27 @@ body {
   /* background-image: url('https://wallpaperaccess.com/full/3949076.jpg'); */
 }
 .footer {
-  background-image: url('https://wallpaperaccess.com/full/3949076.jpg');
+  /* background-image: url('https://wallpaperaccess.com/full/3949076.jpg'); */
+}
+
+.banner {
+  background-image: url('./assets/images/banner.jpg');
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+select {
+  font-size: 20px;
+    background: #ce1212;
+    color: white;
+    font-weight: bold;
+    border-radius: 10px;
+    padding: 10px;
+}
+
 
 
 .image-max-height {

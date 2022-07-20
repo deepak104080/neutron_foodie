@@ -1,3 +1,4 @@
+import axios from 'axios';
 import React, { useEffect } from 'react'
 import {useDispatch, useSelector} from 'react-redux';
 import { useNavigate } from 'react-router-dom';
@@ -8,6 +9,31 @@ const Cart = () => {
     const loginData = useSelector(state => state.login);
     console.log('Header---------------------', loginData.loginDataRedux);
     const navigate = useNavigate();
+    const cartData = useSelector(state => state.cart);
+    console.log('Header---------------------', cartData);
+
+    const placeOrderFn = async() => {
+        console.log('-------placing order');
+        try{
+            const url = 'http://localhost:4000/orders/placeorder';
+            const tempObj = {
+                rest_id: '001',
+                rest_name: 'abcde',
+                city: 'delhi',
+                amount: 500
+            }
+
+            const response = await axios.post(url, tempObj);
+            if(response.status === 201) {
+                console.log('order placed.');
+                navigate('/order', {state: response});
+            }
+        }
+        catch(err){
+            console.log('order failed. try again.')
+            //show error message.
+        }
+    }
 
     useEffect(() => {
         //checking login
@@ -20,13 +46,38 @@ const Cart = () => {
 
     return (
         <>
-            <section id="hero" class="hero d-flex align-items-center section-bg">
+            <section class="align-items-center section-bg">
+                <div class="container">
+                    <h4 data-aos="fade-up">Your selected food items</h4>
+                </div>
+            </section>
+
+            <section class="align-items-center section-bg">
                 <div class="container">
                 <div class="row justify-content-between gy-5">
-                    <div class="col-lg-5 order-2 order-lg-1 d-flex flex-column justify-content-center align-items-center align-items-lg-start text-center text-lg-start">
-                        <h2 data-aos="fade-up">Enjoy Your HealthyDelicious Food</h2>
+                    <table className='table'>
+                        <tr>
+                            <th>Sr No</th>
+                            <th>Name</th>
+                            <th>Price</th>
+                        </tr>
+                    {
+                            cartData.foodCart && cartData.foodCart.map((item, index) => (
+                                <tr>
+                                    <td>{index}</td>
+                                    <td>{item.food_name}</td>
+                                    <td>{item.price}</td>
+                                </tr>
+                            ))
+                    }
+                   </table>
 
-                    </div>
+                   <br></br>
+                   {
+                            cartData.foodCart.length > 0 && (
+                                <button className='btn btn-warning' onClick={placeOrderFn}>Place Order</button>
+                            )
+                   }
                 </div>
                 </div>
             </section>

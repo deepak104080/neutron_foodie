@@ -1,13 +1,16 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
-
+import {useDispatch, useSelector} from 'react-redux';
+import {addFoodToCart} from './actionFood';
 
 const Restaurant = () => {
     const [rest_data, setRestData] = useState({});
     const [menu, setMenu] = useState([]);
     const tempId = useParams();
     console.log('rest id - ', tempId);
+    const loginData = useSelector(state => state.login);
+    const dispatch = useDispatch();
     const vegIcon = 'https://banner2.cleanpng.com/20180601/at/kisspng-vegetarian-cuisine-biryani-indian-cuisine-vegetabl-vegetarian-5b11c235a92d48.569689881527890485693.jpg';
     const nonvegIcon = 'https://spng.pinpng.com/pngs/s/45-459786_non-veg-icon-circle-hd-png-download.png';
 
@@ -34,6 +37,12 @@ const Restaurant = () => {
         const response = await axios.get(url);
         setMenu(response.data);
     }
+
+    const addCartFn = (foodItem) => {
+        console.log(foodItem);
+        dispatch(addFoodToCart(foodItem));
+    }
+
     useEffect(() => {
         callApi();
         callApiMenu();
@@ -86,8 +95,13 @@ const Restaurant = () => {
                         <h2>{rest_data.category}</h2>
                         <h2>{rest_data.location}</h2>
 
-                        <button className="btn btn-success">Add Review</button>
-                        <button className="btn btn-warning bg-opacity-50">Mark Favourite</button>
+                        {loginData.loginDataRedux && 
+                        (
+                            <>
+                                <button className="btn btn-success">Add Review</button>
+                                <button className="btn btn-warning bg-opacity-50">Mark Favourite</button>
+                            </>
+                        )}
                     </div>
 
                     
@@ -106,7 +120,13 @@ const Restaurant = () => {
                                                 <td>{temp.food_name}</td>
                                                 <td>&#8377;{temp.price}</td>
                                                 <td>{temp.description}</td>
-                                                <td><button className="btn btn-sm btn-warning">Add to Cart</button></td>
+                                                {loginData.loginDataRedux && 
+                                                (
+                                                    <>
+                                                        <td><button className="btn btn-sm btn-warning" onClick={() => addCartFn(temp)}>Add to Cart</button></td>
+                                                    </>
+                                                )}
+                                                
                                             </tr>
                                         ))}
                     </table>

@@ -19,10 +19,10 @@ Add Food - API 6
 Add City - API 10
 ------------------------------------------------------------
 Module 3 - End User
-Page 1 - Login Page - API 7
+Page 1 - Login Page - API 7 and Redux
 Page 2 - Registration Page - API 8
-Page 3 - cart - 
-Page 4 - checkout - login details, delivery details, payment details - API 9
+Page 3 - Add to cart - Redux
+Page 4 - Checkout - login details, delivery details, payment details - API 9 (deliveryaddress, mobile, paymentdetails)
 Page 5 - Order Placed Page
 ------------------------------------------------------------
 Module 4 - End User
@@ -38,6 +38,16 @@ Page1 - reviews, bookmark/favourite
 Page 2 - wallet/credit/discount/cashback
 
 
+
+
+
+Pending Item
+City Schema and API
+Template Update/Improve
+Add Restaurant/Food Item
+Update Restaurant/Food Item
+Improve Menu/Homepage
+User Type Handling
 -----------------------------------------------------------
 -----------------------------------------------------------
 API List
@@ -54,16 +64,18 @@ API List
 -----------------------------------------------------------
 -----------------------------------------------------------
 Table names
-City
+City - 
 Restaurant - city, geolocation (latitude, longitude), category, veg/nonveg
 Menu - name, price
 Users - username, name, email, mobile, password
 userdetails - address, foodpreference, city, pincode, profilepic, dob, gender
-orders - delivery, payment, menu
-order details
+orders - orderid, rest_name, city, amount, (deliveryaddress, mobile, paymentstatus, paymentcode)
+order details - menu
 
 
 ------------------------------------------------------------
+
+
 
 
 Authentication - 

@@ -12,6 +12,8 @@ import Restaurant from './components/Restaurant/Restaurant';
 import Registration from './components/User/Registration';
 import Login from './components/User/Login';
 import Cart from './components/User/Cart';
+import AddRestaurant from './components/Restaurant/AddRestaurant';
+import Order from './components/User/Order';
 
 import Header from './components/shared/Header';
 import Footer from './components/shared/Footer';
@@ -28,6 +30,8 @@ function App() {
           <Route path='/registration/' element = {<Registration/>}/>
           <Route path='/login/' element = {<Login/>}/>
           <Route path='/cart/' element = {<Cart/>}/>
+          <Route path='/addrestaurant/' element = {<AddRestaurant/>}/>
+          <Route path='/order/' element = {<Order/>}/>
           <Route path='/' element = {<HomePage/>}/>
         </Routes>
         <Footer/>

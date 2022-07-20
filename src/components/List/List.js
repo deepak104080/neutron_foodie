@@ -32,39 +32,45 @@ const List = () => {
 
     return(
         <> 
-            <h2>List</h2>
+
+
+        <section id="" className="section-bg">
+            <div className="container" data-aos="fade-up">
+                <div className="row">
+                    
+                
+                
+                
+                <div class="row gy-5">
+
+
+
+                {list && list.map((item) => (
+                <div class="col-lg-4 menu-item border bg-secondary bg-opacity-10">
+                    <Link to={`/restaurant/${item.rest_id}`} class="glightbox">
+                        <img src={item.image} class="menu-img img-fluid image-max-height" alt=""/>
+                        <h4>{item.rest_name}</h4>
+                    </Link>
+                </div>
+
+                ))}
+                
+                {list.length === 0 && (
+                    <h2 className="">
+                        No restaurants available in this area.
+                    </h2>
+                )}
             
-               
 
 
-            <div class="row gy-5">
+                </div>
 
 
-
-            {list && list.map((item) => (
-            <div class="col-lg-4 menu-item border bg-secondary bg-opacity-10">
-                <Link to={`/restaurant/${item.rest_id}`} class="glightbox">
-                    <img src={item.image} class="menu-img img-fluid image-max-height" alt=""/>
-                
-                    <h4>{item.rest_name}</h4>
-                
-                    <p class="price">
-                        $5.95
-                    </p>
-                </Link>
+                </div>
             </div>
+        </section>
 
-            ))}
-
-          
-
-           
-
-         
-
-          
-
-            </div>
+            
         </>
     );
 }
