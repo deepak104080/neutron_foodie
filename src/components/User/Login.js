@@ -1,7 +1,7 @@
 import React, {useRef, useState} from 'react'
 import axios from 'axios';
 import {Link, useNavigate} from 'react-router-dom';
-import {setLoginData} from './actionLogin';
+import {setLoginData, setUrl} from './actionLogin';
 import { useDispatch, useSelector } from 'react-redux';
 
 const Login = () => {
@@ -31,7 +31,7 @@ const Login = () => {
           errorRef.current.textContent = '';
           //set redux for login data
           dispatch(setLoginData(response.data));
-          if(loginData.currentUrl) {
+          if(loginData.currentUrl && loginData.currentUrl !== '/order') {
             navigate(loginData.currentUrl);
           }
           else {

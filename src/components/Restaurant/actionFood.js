@@ -6,3 +6,16 @@ export const addFoodToCart = (foodItem) => {
         payload: foodItem
     }
 }
+
+export const addRestDetails = (restDetails) => {
+    return{
+        type: Constants.ADD_REST_DETAILS,
+        payload: restDetails
+    }
+}
+
+export const emptyFoodFromCart = () => {
+    return{
+        type: Constants.EMPTY_FOOD_FROM_CART
+    }
+}

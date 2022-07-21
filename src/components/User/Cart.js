@@ -17,16 +17,18 @@ const Cart = () => {
         try{
             const url = 'http://localhost:4000/orders/placeorder';
             const tempObj = {
-                rest_id: '001',
-                rest_name: 'abcde',
-                city: 'delhi',
-                amount: 500
+                username: loginData.loginDataRedux.username,
+                rest_id: cartData.restDetails.rest_id,
+                rest_name: cartData.restDetails.rest_name,
+                city: cartData.restDetails.city,
+                amount: 500,
+                foodItems: cartData.foodCart
             }
 
             const response = await axios.post(url, tempObj);
             if(response.status === 201) {
                 console.log('order placed.');
-                navigate('/order', {state: response});
+                navigate('/order', {state: response.data});
             }
         }
         catch(err){

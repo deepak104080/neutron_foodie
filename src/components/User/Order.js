@@ -9,15 +9,14 @@ const Cart = () => {
     const loginData = useSelector(state => state.login);
     console.log('Header---------------------', loginData.loginDataRedux);
     const navigate = useNavigate();
-    const orderData = useLocation();
+    const {state: orderData} = useLocation();
+    console.log('orderData', orderData)
 
 
     useEffect(() => {
-        //checking login
         if(!loginData.loginDataRedux) {
-            //save current url
             dispatch(setUrl(window.location.pathname));
-            navigate('/login');
+            navigate('/login', );
         }
     }, [loginData.loginDataRedux])
 
@@ -31,8 +30,8 @@ const Cart = () => {
 
             <section class="align-items-center section-bg">
                 <div class="container">
-                    <h4>Order ID - {}</h4>
-                    <h3>Restaurant - {}</h3>
+                    <h4>Order ID - {orderData.orderid}</h4>
+                    <h3>Restaurant - {orderData.rest_name}</h3>
                 </div>
             </section>
         </>

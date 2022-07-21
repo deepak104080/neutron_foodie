@@ -51,16 +51,17 @@ User Type Handling
 -----------------------------------------------------------
 -----------------------------------------------------------
 API List
-1 - http://localhost:4000/restaurants/'+tempData2.city - Restaurant - GET
-2 - http://localhost:4000/restaurants/search/'+tempId.id; - Restaurant - GET
-3 - http://localhost:4000/menu/'+tempId.id; - Menu - GET
-4 - city list api - City - GET
-5 - Add Restaurnt - POST - Restaurant
-6 - Add Menu - POST - Menu
-7 - Login - POST - Users
-8 - Registration - POST - Users
-9 - Order Placement - POST - Orders
-10 - City Add - POST - City
+1 - http://localhost:4000/restaurants/'+tempData2.city - Restaurant - GET - Non-secure
+2 - http://localhost:4000/restaurants/search/'+tempId.id; - Restaurant - GET - Non-secure
+3 - http://localhost:4000/menu/'+tempId.id; - Menu - GET - Non-secure
+4 - city list api - City - GET - Non-secure
+5 - Add Restaurnt - POST - Restaurant - Secure/Admin
+6 - Add Menu - POST - Menu - Secure/Admin
+7 - Login - POST - Users - Non-secure
+8 - Registration - POST - Users - Non-secure
+9 - Order Placement - POST - Orders - Secure
+10 - City Add - POST - City - Secure/Admin
+11 - Order History/ All Orders by any user - GET - Secure
 -----------------------------------------------------------
 -----------------------------------------------------------
 Table names
@@ -80,6 +81,16 @@ order details - menu
 
 Authentication - 
 Authorization - Auth0, Passport, JWT Token
+
+
+
+Step 1 - Back End - If Login successfull, generate jwt token and send along with response data
+Step 2 - Front End - Store jwt token locally - localStorage/redux/context
+Step 2.1 - Front End - Check login on front end on basis of jwt token
+Step 3 - Front End - Attach jwt token along with Secure API headers
+Step 4 - Back End - verify the jwt token received
+
+
 
 
 

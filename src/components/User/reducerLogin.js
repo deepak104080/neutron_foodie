@@ -12,7 +12,9 @@ export const reducerLogin = (state = initialObject, action) => {
                 ...state, loginDataRedux: payload
             }
         case Constants.SET_LOGOUT:
-            console.log('----------login reducer hit-----------------')
+            console.log('----------logout reducer hit-----------------')
+            // delete state['loginDataRedux'];
+            // console.log(state);
             return initialObject;
         case Constants.SET_URL:
             console.log('--------------set url in reducer-------------');

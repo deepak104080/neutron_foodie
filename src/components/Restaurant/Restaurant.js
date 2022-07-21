@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import {useDispatch, useSelector} from 'react-redux';
-import {addFoodToCart} from './actionFood';
+import {addFoodToCart, addRestDetails, emptyFoodFromCart} from './actionFood';
 
 const Restaurant = () => {
     const [rest_data, setRestData] = useState({});
@@ -13,6 +13,8 @@ const Restaurant = () => {
     const dispatch = useDispatch();
     const vegIcon = 'https://banner2.cleanpng.com/20180601/at/kisspng-vegetarian-cuisine-biryani-indian-cuisine-vegetabl-vegetarian-5b11c235a92d48.569689881527890485693.jpg';
     const nonvegIcon = 'https://spng.pinpng.com/pngs/s/45-459786_non-veg-icon-circle-hd-png-download.png';
+    const cartData = useSelector(state => state.cart);
+    console.log('Header---------------------', cartData.restDetails);
 
     // const veg = () => {
     //     console.log('veg')
@@ -27,11 +29,14 @@ const Restaurant = () => {
     //     )
     // }
 
+    //api call for restaurant details
     const callApi = async () => {
         const url = 'http://localhost:4000/restaurants/search/'+tempId.id;
         const response = await axios.get(url);
         setRestData(response.data);
     }
+
+    //api call for restaurant menu items
     const callApiMenu = async () => {
         const url = 'http://localhost:4000/menu/'+tempId.id;
         const response = await axios.get(url);
@@ -40,7 +45,23 @@ const Restaurant = () => {
 
     const addCartFn = (foodItem) => {
         console.log(foodItem);
-        dispatch(addFoodToCart(foodItem));
+        let restDetails = {};
+        restDetails.rest_id = rest_data.rest_id;
+        restDetails.rest_name = rest_data.rest_name;
+        restDetails.city = rest_data.location;
+
+        if(restDetails.rest_id === cartData.restDetails.rest_id) {
+            dispatch(addFoodToCart(foodItem));
+            dispatch(addRestDetails(restDetails));
+        }
+        else {
+            //empty foodcart
+            dispatch(emptyFoodFromCart());
+            //empty restDetails - no separate action required as addRestDetails will overwrite
+            dispatch(addFoodToCart(foodItem));
+            dispatch(addRestDetails(restDetails));
+        }
+        
     }
 
     useEffect(() => {

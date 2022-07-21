@@ -1,17 +1,23 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import {Link} from 'react-router-dom';
-import {setLogout} from '../User/actionLogin';
+import {Link, Navigate, useNavigate} from 'react-router-dom';
+import {setLogout, setUrl} from '../User/actionLogin';
 
 const Header = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const loginData = useSelector(state => state.login);
-  console.log('Header---------------------', loginData.loginDataRedux)
+  console.log('Header---------------------', loginData)
 
   const logoutFn = () => {
     console.log('---------logout------------');
     //redux update - loginData
     dispatch(setLogout());
+  }
+
+  const loginFn = () => {
+    dispatch(setUrl(window.location.pathname));
+    navigate('/login');
   }
 
   return (
@@ -39,17 +45,19 @@ const Header = () => {
           <li><Link to="">Profile</Link></li>
         </ul>
       </nav>
-      <Link to="/cart" class="btn-book-a-table" >Cart</Link>
+      
 
       <span>
         {
           loginData.loginDataRedux ? (
             <>
+              <Link to="/cart" class="btn-book-a-table" >Cart</Link>
               <button onClick={logoutFn} class="btn-book-a-table" >Logout</button>
             </>
           ) : (
             <>
-              <Link to="/login" class="btn-book-a-table" >Login</Link>
+              <button onClick={loginFn} class="btn-book-a-table" >Login</button>
+              {/* <Link to="/login" class="btn-book-a-table" >Login</Link> */}
               <Link to="/registration" class="btn-book-a-table">Register</Link>
             </>
           )
