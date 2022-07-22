@@ -25,7 +25,11 @@ const Cart = () => {
                 foodItems: cartData.foodCart
             }
 
-            const response = await axios.post(url, tempObj);
+            const response = await axios.post(url, tempObj, {
+                headers: {
+                    "x-access-token": loginData.loginDataRedux.token
+                }
+            });
             if(response.status === 201) {
                 console.log('order placed.');
                 navigate('/order', {state: response.data});

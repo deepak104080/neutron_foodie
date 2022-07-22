@@ -92,6 +92,17 @@ Step 4 - Back End - verify the jwt token received
 
 
 
+IEEE
+ACM
+
+W3C - World Wide Web Consortium
+WWW - World Wide Web
+RFC - Request for Comment
+
+6-3-8-7-4-3-6-6-7-2
+8421
+
+0110-0011-1000-0111-0100-0011-0110-0110-0111-0010
 
 
 Testing Libraries for React - JEST, Enzyme, react-test-rendere, react-testing-library, cypress
