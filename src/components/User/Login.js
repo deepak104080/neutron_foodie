@@ -22,7 +22,8 @@ const Login = () => {
 
     if(tempObj.username !== '' && tempObj.password !== '') {
       try{
-        const url = 'http://localhost:4000/user/login';
+        //console.log(process.env.REACT_APP_API_URL);
+        const url = process.env.REACT_APP_API_URL + 'user/login';
         const response = await axios.post(url, tempObj);
         console.log(response);
         

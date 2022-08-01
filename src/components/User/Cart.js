@@ -15,7 +15,7 @@ const Cart = () => {
     const placeOrderFn = async() => {
         console.log('-------placing order');
         try{
-            const url = 'http://localhost:4000/orders/placeorder';
+            const url = `${process.env.REACT_APP_API_URL}orders/placeorder`;
             const tempObj = {
                 username: loginData.loginDataRedux.username,
                 rest_id: cartData.restDetails.rest_id,

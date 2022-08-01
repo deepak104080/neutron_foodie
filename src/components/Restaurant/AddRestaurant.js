@@ -23,7 +23,7 @@ const AddRestaurant = () => {
     if(tempObj.rest_name !== '' && tempObj.location !== '' && tempObj.category !== '') {
 
         try{
-            const url = 'http://localhost:4000/restaurants';
+            const url = `${process.env.REACT_APP_API_URL}restaurants`;
             const response = await axios.post(url, tempObj);
             console.log(response);
             if(response.status === 201) {
